@@ -11,3 +11,9 @@ class Card(models.Model):
     box = models.IntegerField(
         choices=zip(BOXES, BOXES), default=BOXES[0]
     )
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.question
+
+        
