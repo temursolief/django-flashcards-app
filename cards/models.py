@@ -1,3 +1,13 @@
 from django.db import models
 
 # Create your models here.
+
+NUM_BOXES = 5
+BOXES = range(1, NUM_BOXES+1)
+
+class Card(models.Model):
+    question = models.CharField(max_length=256)
+    answer = models.CharField(max_length=256)
+    box = models.IntegerField(
+        choices=zip(BOXES, BOXES), default=BOXES[0]
+    )
